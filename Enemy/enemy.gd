@@ -18,6 +18,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 
+func initialize(x, y):
+	self.position = Vector2(x, y)
+
+
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		chase = true

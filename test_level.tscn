@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dltsru0db1hfo"]
+[gd_scene load_steps=9 format=3 uid="uid://dltsru0db1hfo"]
 
 [ext_resource type="Texture2D" uid="uid://c157jnoy0sct7" path="res://icon.svg" id="1_63v7w"]
 [ext_resource type="Script" path="res://player.gd" id="1_n4i7h"]
-[ext_resource type="PackedScene" uid="uid://fys5l3mkshgb" path="res://enemy.tscn" id="3_2g6q3"]
+[ext_resource type="PackedScene" uid="uid://fys5l3mkshgb" path="res://Enemy/enemy.tscn" id="3_2g6q3"]
 [ext_resource type="Script" path="res://health.gd" id="4_40ovr"]
+[ext_resource type="Script" path="res://Enemy/enemy_spawner.gd" id="6_ft8jj"]
+[ext_resource type="Resource" uid="uid://c5egxyhp2uwn1" path="res://Enemy/level_1_spawns.tres" id="6_ogpms"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hw4tf"]
 size = Vector2(1164, 41)
@@ -69,3 +71,7 @@ offset_bottom = 124.0
 theme_override_font_sizes/font_size = 55
 text = "Health: "
 script = ExtResource("4_40ovr")
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("6_ft8jj")
+_spawn_resource = ExtResource("6_ogpms")

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SpawnPoint" load_steps=2 format=3 uid="uid://c5egxyhp2uwn1"]
+
+[ext_resource type="Script" path="res://Enemy/spawn_point.gd" id="1_206rf"]
+
+[resource]
+script = ExtResource("1_206rf")
+_spawn_points = Array[Vector2]([Vector2(500, 1500), Vector2(400, 1500), Vector2(600, 1500), Vector2(1700, 1500)])
