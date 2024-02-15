@@ -1,0 +1,59 @@
+Setup:
+ - Inspector
+ - signal nodes
+ - scene roots
+ - file system
+ - project settings
+ - bottom tabs
+
+controls
+ - scrollwheel to move
+Nodes 
+ - all derive from the central "Node"
+ - each unique node: "CharacterBody2D" extends from node and expands on what it can do
+ - a scene is a container of nodes
+ - the root node gives a base for what that node can do
+ - the child nodes give that base purpose more features i.e.: giving a player collision or sprite
+ - make a scene for each component in a game (Sword, player, level, enemy, effects) and combine them in a larger scene that acts as a level
+ - scripts allow those nodes to do more unique things and interact with the enviroment around them
+ - signals connect nodes together: something happens -> something else is triggered
+
+Scenes
+- folder for nodes
+- create node2d
+- add child
+- save scene
+- organize scenes in res
+- make new scene
+
+Nodes
+- values
+- child nodes
+- root node
+- general kinds of nodes:
+	- sprite
+	- Body
+	- UI
+	- UI controller
+	- 
+- get_node() or $node
+
+Scripts
+- get_node() or $node
+- variables:
+	- @export
+	- @onready
+	- var
+- functions
+- default functions:
+	- _ready()
+	- _process(delta)
+	- _physics_process(delta)
+	- _input(event)
+
+Signals
+ - how nodes talk to eachother
+ - built in signals
+ - emit_signal() ?
+
+input settings
