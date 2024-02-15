@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://dltsru0db1hfo"]
+
+[ext_resource type="Texture2D" uid="uid://c157jnoy0sct7" path="res://icon.svg" id="1_63v7w"]
+[ext_resource type="Script" path="res://player.gd" id="1_n4i7h"]
+[ext_resource type="PackedScene" uid="uid://fys5l3mkshgb" path="res://enemy.tscn" id="3_2g6q3"]
+[ext_resource type="Script" path="res://health.gd" id="4_40ovr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hw4tf"]
+size = Vector2(1164, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig6dy"]
+size = Vector2(126, 125)
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="BG" type="ColorRect" parent="."]
+offset_right = 3060.0
+offset_bottom = 1778.0
+color = Color(0, 0.839216, 0.847059, 1)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(-181, 1111)
+scale = Vector2(3, 1)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = -2.0
+offset_top = 630.0
+offset_right = 1162.0
+offset_bottom = 670.0
+color = Color(0.980392, 0.556863, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(583, 649.5)
+shape = SubResource("RectangleShape2D_hw4tf")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(1118, 1624)
+script = ExtResource("1_n4i7h")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_63v7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ig6dy")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Enemy" parent="." instance=ExtResource("3_2g6q3")]
+position = Vector2(1990, 1658)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1118, 1624)
+zoom = Vector2(0.5, 0.5)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_2g6q3")]
+position = Vector2(2417, 1654)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Health" type="Label" parent="UI"]
+offset_left = 68.0
+offset_top = 48.0
+offset_right = 274.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 55
+text = "Health: "
+script = ExtResource("4_40ovr")
