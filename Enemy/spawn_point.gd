@@ -2,4 +2,4 @@ extends Resource
 
 class_name SpawnPoint
 
-@export var _spawn_points: Array[Vector2]
+@export var _enemy_values: Array[EnemyValues]
